@@ -13,6 +13,10 @@
 		F69D2DA51BABAB30006166A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F69D2DA41BABAB30006166A9 /* Images.xcassets */; };
 		F69D2DA81BABAB30006166A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F69D2DA61BABAB30006166A9 /* LaunchScreen.xib */; };
 		F69D2DB41BABAB30006166A9 /* TFGStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D2DB31BABAB30006166A9 /* TFGStoreTests.swift */; };
+		F69D2DC81BABB3F2006166A9 /* TFGStoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D2DC61BABB3F2006166A9 /* TFGStoreVC.swift */; };
+		F69D2DC91BABB3F2006166A9 /* TFGStoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F69D2DC71BABB3F2006166A9 /* TFGStoreVC.xib */; };
+		F69D2DCC1BABC7D2006166A9 /* TFGStoreItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D2DCA1BABC7D2006166A9 /* TFGStoreItemVC.swift */; };
+		F69D2DCD1BABC7D2006166A9 /* TFGStoreItemVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F69D2DCB1BABC7D2006166A9 /* TFGStoreItemVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		F69D2DAD1BABAB30006166A9 /* TFGStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TFGStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69D2DB21BABAB30006166A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F69D2DB31BABAB30006166A9 /* TFGStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFGStoreTests.swift; sourceTree = "<group>"; };
+		F69D2DC61BABB3F2006166A9 /* TFGStoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFGStoreVC.swift; sourceTree = "<group>"; };
+		F69D2DC71BABB3F2006166A9 /* TFGStoreVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TFGStoreVC.xib; sourceTree = "<group>"; };
+		F69D2DCA1BABC7D2006166A9 /* TFGStoreItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFGStoreItemVC.swift; sourceTree = "<group>"; };
+		F69D2DCB1BABC7D2006166A9 /* TFGStoreItemVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TFGStoreItemVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,7 @@
 		F69D2D9A1BABAB30006166A9 /* TFGStore */ = {
 			isa = PBXGroup;
 			children = (
+				F69D2DBD1BABAB44006166A9 /* TFGStore */,
 				F69D2D9D1BABAB30006166A9 /* AppDelegate.swift */,
 				F69D2D9F1BABAB30006166A9 /* ViewController.swift */,
 				F69D2DA11BABAB30006166A9 /* Main.storyboard */,
@@ -110,6 +119,17 @@
 				F69D2DB21BABAB30006166A9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F69D2DBD1BABAB44006166A9 /* TFGStore */ = {
+			isa = PBXGroup;
+			children = (
+				F69D2DC61BABB3F2006166A9 /* TFGStoreVC.swift */,
+				F69D2DC71BABB3F2006166A9 /* TFGStoreVC.xib */,
+				F69D2DCA1BABC7D2006166A9 /* TFGStoreItemVC.swift */,
+				F69D2DCB1BABC7D2006166A9 /* TFGStoreItemVC.xib */,
+			);
+			name = TFGStore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,7 +213,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F69D2DA31BABAB30006166A9 /* Main.storyboard in Resources */,
+				F69D2DCD1BABC7D2006166A9 /* TFGStoreItemVC.xib in Resources */,
 				F69D2DA81BABAB30006166A9 /* LaunchScreen.xib in Resources */,
+				F69D2DC91BABB3F2006166A9 /* TFGStoreVC.xib in Resources */,
 				F69D2DA51BABAB30006166A9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +234,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F69D2DC81BABB3F2006166A9 /* TFGStoreVC.swift in Sources */,
+				F69D2DCC1BABC7D2006166A9 /* TFGStoreItemVC.swift in Sources */,
 				F69D2DA01BABAB30006166A9 /* ViewController.swift in Sources */,
 				F69D2D9E1BABAB30006166A9 /* AppDelegate.swift in Sources */,
 			);
