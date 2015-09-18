@@ -19,8 +19,11 @@ class TFGStoreTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.iconImageView.layer.cornerRadius = 15.0
+        self.iconImageView.layer.cornerRadius = self.iconImageView.frame.width/4;
         self.iconImageView.clipsToBounds = true
+        var tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("clickedGet:"))
+        self.iconImageView.addGestureRecognizer(tapGestureRecognizer)
+
     }
 
     @IBAction func clickedGet(sender: AnyObject) {

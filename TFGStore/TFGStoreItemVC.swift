@@ -27,7 +27,7 @@ class TFGStoreItemVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = UIRectEdge.None;
-        self.iconImageView.layer.cornerRadius = 25.0;
+        self.iconImageView.layer.cornerRadius = self.iconImageView.frame.width/4;
         self.iconImageView.clipsToBounds = true;
         
         if let model = self.model {
@@ -45,7 +45,18 @@ class TFGStoreItemVC: UIViewController {
             var rect = CGRectMake(contentOffset, 0 as CGFloat, 225, 400);
             var imgview = UIImageView(frame: rect);
             imgview.backgroundColor = UIColor.lightGrayColor();
-            imgview.loadImageFromURLString(url, placeholderImage: nil, completion: nil);
+            imgview.loadImageFromURLString(url, placeholderImage: nil) { finished, error in
+                if finished {
+                    imgview.backgroundColor = UIColor.clearColor();
+                    if let img = imgview.image {
+                        if img.size.width/img.size.height > 1.0 {
+                            var newImg = UIImage(CGImage: img.CGImage, scale: 1.0, orientation: .Left)
+                            imgview.image = newImg;
+                        }
+                    }
+                }
+            };
+            imgview.contentMode = UIViewContentMode.ScaleAspectFit;
             self.screenshotScrollView.addSubview(imgview);
             
             contentOffset += imgview.frame.size.width;
@@ -53,6 +64,7 @@ class TFGStoreItemVC: UIViewController {
             contentOffset += 10;
 
         }
+
     }
     
     @IBAction func downloadClicked(sender: AnyObject) {
