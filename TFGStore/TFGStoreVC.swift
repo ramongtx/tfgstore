@@ -8,7 +8,9 @@
 
 import UIKit
 
-class TFGStoreVC: UIViewController {
+class TFGStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, TFGStoreTableCellProtocol {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     init() {
         super.init(nibName: "TFGStoreVC", bundle: nil);
@@ -33,31 +35,46 @@ class TFGStoreVC: UIViewController {
         
         let backButton = UIBarButtonItem(title: "Close", style: UIBarButtonItemStyle.Plain, target: self, action:"back:");
         self.navigationItem.leftBarButtonItem = backButton;
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        
+        // Registering NIB
+        var tableCellNib = UINib(nibName: "TFGStoreTableCell",bundle: nil);
+        tableView.registerNib(tableCellNib, forCellReuseIdentifier: "tfgstorecell");
+        
     }
     
-    @IBAction func goNext(sender: AnyObject) {
-        let vc = TFGStoreItemVC();
-        self.navigationController?.pushViewController(vc, animated: true)
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5;
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell : TFGStoreTableCell = self.tableView.dequeueReusableCellWithIdentifier("tfgstorecell") as! TFGStoreTableCell;
+        
+        var mod = TFGStoreItemModel();
+        mod.position = indexPath.row;
+        mod.appName = "App \(indexPath.row)";
+        cell.loadModel(mod);
+        
+        cell.delegate = self;
+
+        return cell;
+    }
+    
+    func selectedModel(model: TFGStoreItemModel) {
+        var vc = TFGStoreItemVC();
+        vc.loadModel(model);
+        self.navigationController?.pushViewController(vc, animated: true);
+    }
+
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 84;
     }
     
     func back(sender: AnyObject) {
         self.dismissViewControllerAnimated(false, completion: nil);
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

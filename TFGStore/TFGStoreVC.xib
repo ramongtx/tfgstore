@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TFGStoreVC" customModule="TFGStore" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="odK-O9-sdn" id="2oH-Pv-feo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,17 +15,18 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zit-by-xF7">
-                    <rect key="frame" x="282" y="285" width="46" height="30"/>
-                    <state key="normal" title="Button">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="goNext:" destination="-1" eventType="touchUpInside" id="x73-wP-81U"/>
-                    </connections>
-                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="odK-O9-sdn">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="odK-O9-sdn" secondAttribute="trailing" id="8Bv-hC-0ta"/>
+                <constraint firstItem="odK-O9-sdn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CL7-EK-cN0"/>
+                <constraint firstItem="odK-O9-sdn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fgP-2F-NOX"/>
+                <constraint firstAttribute="bottom" secondItem="odK-O9-sdn" secondAttribute="bottom" id="zLg-Ei-EmY"/>
+            </constraints>
         </view>
     </objects>
 </document>
