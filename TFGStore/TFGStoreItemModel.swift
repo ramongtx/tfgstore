@@ -13,7 +13,7 @@ class TFGStoreItemModel {
     var appName = "";
     var description = "";
     var iconURL = "";
-    var storeLink = "";
+    var storeId = "";
     var screenshotsURLs = Array<String>();
     
     static func arrayFromJson (json : NSDictionary) -> Array<TFGStoreItemModel> {
@@ -48,7 +48,7 @@ class TFGStoreItemModel {
                     }
                 case "link":
                     if let string = value as? String {
-                        self.storeLink = string;
+                        self.storeId = string;
                     }
                 case "screenshots":
                     if let screenshotArray = value as? Array<String> {
