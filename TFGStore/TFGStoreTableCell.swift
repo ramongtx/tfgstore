@@ -15,6 +15,7 @@ class TFGStoreTableCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var positionLabel: UILabel!
+    @IBOutlet weak var iconImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +31,7 @@ class TFGStoreTableCell: UITableViewCell {
         self.model = newModel;
         positionLabel.text = "\(newModel.position)";
         nameLabel.text = newModel.appName;
+        iconImageView.loadImageFromURLString("http://mythicspoiler.com/bfz/cards/scaldingtarn.jpg", placeholderImage: nil, completion: nil);
     }
 
 }

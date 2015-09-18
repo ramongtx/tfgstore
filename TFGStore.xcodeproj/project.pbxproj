@@ -20,6 +20,8 @@
 		F69D2DCF1BABCE14006166A9 /* TFGStoreTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F69D2DCE1BABCE14006166A9 /* TFGStoreTableCell.xib */; };
 		F69D2DD51BABD699006166A9 /* TFGStoreTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D2DD41BABD699006166A9 /* TFGStoreTableCell.swift */; };
 		F69D2DD71BABE095006166A9 /* TFGStoreItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D2DD61BABE095006166A9 /* TFGStoreItemModel.swift */; };
+		F69D2DD91BABE8C7006166A9 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D2DD81BABE8C7006166A9 /* UIImageViewExtensions.swift */; };
+		F69D2DDB1BABE912006166A9 /* KFImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D2DDA1BABE912006166A9 /* KFImageCacheManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		F69D2DCE1BABCE14006166A9 /* TFGStoreTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TFGStoreTableCell.xib; sourceTree = "<group>"; };
 		F69D2DD41BABD699006166A9 /* TFGStoreTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFGStoreTableCell.swift; sourceTree = "<group>"; };
 		F69D2DD61BABE095006166A9 /* TFGStoreItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFGStoreItemModel.swift; sourceTree = "<group>"; };
+		F69D2DD81BABE8C7006166A9 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
+		F69D2DDA1BABE912006166A9 /* KFImageCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KFImageCacheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 		F69D2DBD1BABAB44006166A9 /* TFGStore */ = {
 			isa = PBXGroup;
 			children = (
+				F69D2DDC1BABEAC9006166A9 /* KFSwiftImageLoader */,
 				F69D2DC61BABB3F2006166A9 /* TFGStoreVC.swift */,
 				F69D2DC71BABB3F2006166A9 /* TFGStoreVC.xib */,
 				F69D2DCA1BABC7D2006166A9 /* TFGStoreItemVC.swift */,
@@ -139,6 +144,15 @@
 				F69D2DD61BABE095006166A9 /* TFGStoreItemModel.swift */,
 			);
 			name = TFGStore;
+			sourceTree = "<group>";
+		};
+		F69D2DDC1BABEAC9006166A9 /* KFSwiftImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				F69D2DD81BABE8C7006166A9 /* UIImageViewExtensions.swift */,
+				F69D2DDA1BABE912006166A9 /* KFImageCacheManager.swift */,
+			);
+			name = KFSwiftImageLoader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,12 +258,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F69D2DD91BABE8C7006166A9 /* UIImageViewExtensions.swift in Sources */,
 				F69D2DD71BABE095006166A9 /* TFGStoreItemModel.swift in Sources */,
 				F69D2DC81BABB3F2006166A9 /* TFGStoreVC.swift in Sources */,
 				F69D2DD51BABD699006166A9 /* TFGStoreTableCell.swift in Sources */,
 				F69D2DCC1BABC7D2006166A9 /* TFGStoreItemVC.swift in Sources */,
 				F69D2DA01BABAB30006166A9 /* ViewController.swift in Sources */,
 				F69D2D9E1BABAB30006166A9 /* AppDelegate.swift in Sources */,
+				F69D2DDB1BABE912006166A9 /* KFImageCacheManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

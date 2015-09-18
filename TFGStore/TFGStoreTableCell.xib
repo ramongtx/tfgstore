@@ -58,6 +58,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="iconImageView" destination="rrS-Mv-pVm" id="Tkz-uf-VQH"/>
                 <outlet property="nameLabel" destination="2Ia-xY-f7n" id="S3u-Ic-Rf0"/>
                 <outlet property="positionLabel" destination="SWr-p1-taZ" id="Cdt-U1-N50"/>
             </connections>
