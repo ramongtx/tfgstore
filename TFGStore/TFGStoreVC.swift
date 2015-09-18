@@ -10,7 +10,20 @@ import UIKit
 
 class TFGStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, TFGStoreTableCellProtocol {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableView: UITableView!;
+    
+    var jsonURLString : String = "";
+    var modelArray : Array<TFGStoreItemModel> = Array<TFGStoreItemModel>();
+    
+    static func present(parent : UIViewController, url: String) {
+        let vc = TFGStoreVC();
+        vc.jsonURLString = url;
+        
+        let nav = UINavigationController(rootViewController: vc);
+        
+        parent.presentViewController(nav, animated: false, completion: nil);
+    }
     
     init() {
         super.init(nibName: "TFGStoreVC", bundle: nil);
@@ -20,44 +33,46 @@ class TFGStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         super.init(coder: aDecoder);
     }
     
-    static func present(parent : UIViewController, url: NSString) {
-        let vc = TFGStoreVC();
-        
-        let nav = UINavigationController(rootViewController: vc);
-        
-        parent.presentViewController(nav, animated: false, completion: nil);
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "App Store";
+        self.tableView.hidden = true;
+        self.activityIndicator.startAnimating();
         
-        let backButton = UIBarButtonItem(title: "Close", style: UIBarButtonItemStyle.Plain, target: self, action:"back:");
+        self.navigationItem.title = "TFG Games Store";
+        
+        let backButton = UIBarButtonItem(title: "Close", style: UIBarButtonItemStyle.Plain, target: self, action:"close:");
         self.navigationItem.leftBarButtonItem = backButton;
         
         tableView.delegate = self;
         tableView.dataSource = self;
+        tableView.tableFooterView = UIView(frame: CGRectZero);
         
         // Registering NIB
         var tableCellNib = UINib(nibName: "TFGStoreTableCell",bundle: nil);
         tableView.registerNib(tableCellNib, forCellReuseIdentifier: "tfgstorecell");
         
+        TFGStoreItemModel.arrayFromURLAsync(self.jsonURLString) { array in
+            self.modelArray = array;
+            self.tableView.reloadData();
+            self.activityIndicator.stopAnimating();
+            self.tableView.hidden = false;
+
+        };
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5;
+        if section != 0 {
+            return 0;
+        }
+        return self.modelArray.count;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell : TFGStoreTableCell = self.tableView.dequeueReusableCellWithIdentifier("tfgstorecell") as! TFGStoreTableCell;
         
-        var mod = TFGStoreItemModel();
-        mod.position = indexPath.row;
-        mod.appName = "App \(indexPath.row)";
-        cell.loadModel(mod);
-        
         cell.delegate = self;
+        cell.loadModel(self.modelArray[indexPath.row]);
 
         return cell;
     }
@@ -68,12 +83,11 @@ class TFGStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         self.navigationController?.pushViewController(vc, animated: true);
     }
 
-    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 84;
     }
     
-    func back(sender: AnyObject) {
+    func close(sender: AnyObject) {
         self.dismissViewControllerAnimated(false, completion: nil);
     }
 

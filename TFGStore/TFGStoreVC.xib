@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TFGStoreVC" customModule="TFGStore" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="Tl8-nS-fcL" id="PRF-GF-Ho1"/>
                 <outlet property="tableView" destination="odK-O9-sdn" id="2oH-Pv-feo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,12 +20,17 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Tl8-nS-fcL">
+                    <rect key="frame" x="290" y="290" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="odK-O9-sdn" secondAttribute="trailing" id="8Bv-hC-0ta"/>
                 <constraint firstItem="odK-O9-sdn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CL7-EK-cN0"/>
+                <constraint firstAttribute="centerX" secondItem="Tl8-nS-fcL" secondAttribute="centerX" id="ZbB-fF-GkW"/>
                 <constraint firstItem="odK-O9-sdn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fgP-2F-NOX"/>
+                <constraint firstAttribute="centerY" secondItem="Tl8-nS-fcL" secondAttribute="centerY" id="o3M-Om-Rrn"/>
                 <constraint firstAttribute="bottom" secondItem="odK-O9-sdn" secondAttribute="bottom" id="zLg-Ei-EmY"/>
             </constraints>
         </view>

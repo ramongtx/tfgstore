@@ -19,6 +19,8 @@ class TFGStoreTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.iconImageView.layer.cornerRadius = 15.0
+        self.iconImageView.clipsToBounds = true
     }
 
     @IBAction func clickedGet(sender: AnyObject) {
@@ -31,7 +33,7 @@ class TFGStoreTableCell: UITableViewCell {
         self.model = newModel;
         positionLabel.text = "\(newModel.position)";
         nameLabel.text = newModel.appName;
-        iconImageView.loadImageFromURLString("http://mythicspoiler.com/bfz/cards/scaldingtarn.jpg", placeholderImage: nil, completion: nil);
+        iconImageView.loadImageFromURLString(newModel.iconURL, placeholderImage: nil, completion: nil);
     }
 
 }
