@@ -12,6 +12,7 @@ class TFGStoreItemVC: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var screenshotScrollView: UIScrollView!
 
     var model : TFGStoreItemModel?;
 
@@ -34,6 +35,23 @@ class TFGStoreItemVC: UIViewController {
             self.nameLabel.text = model.appName;
             self.iconImageView.loadImageFromURLString(model.iconURL, placeholderImage: nil, completion: nil);
             self.descriptionTextView.text = model.description;
+            loadScreenshots(model.screenshotsURLs);
+        }
+    }
+    
+    func loadScreenshots(urls: Array<String>) {
+        var contentOffset : CGFloat = 0.0;
+        for url in urls {
+            var rect = CGRectMake(contentOffset, 0 as CGFloat, 225, 400);
+            var imgview = UIImageView(frame: rect);
+            imgview.backgroundColor = UIColor.lightGrayColor();
+            imgview.loadImageFromURLString(url, placeholderImage: nil, completion: nil);
+            self.screenshotScrollView.addSubview(imgview);
+            
+            contentOffset += imgview.frame.size.width;
+            self.screenshotScrollView.contentSize = CGSizeMake(contentOffset, self.screenshotScrollView.frame.size.height);
+            contentOffset += 10;
+
         }
     }
     
