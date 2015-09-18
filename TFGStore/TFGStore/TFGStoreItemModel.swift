@@ -18,10 +18,13 @@ class TFGStoreItemModel {
     
     static func arrayFromJson (json : NSDictionary) -> Array<TFGStoreItemModel> {
         var array = Array<TFGStoreItemModel>();
+        var pos = 1;
         if let appsArray = json["apps"] as? NSArray {
             for app in appsArray {
                 if let obj = app as? NSDictionary {
                     var model = TFGStoreItemModel(json: obj);
+                    model.position = pos;
+                    pos++;
                     array.append(model);
                 }
             }
