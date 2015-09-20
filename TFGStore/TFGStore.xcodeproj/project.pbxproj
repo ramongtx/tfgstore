@@ -77,9 +77,9 @@
 		F69D2D8F1BABAB30006166A9 = {
 			isa = PBXGroup;
 			children = (
+				F69D2D991BABAB30006166A9 /* Products */,
 				F69D2D9A1BABAB30006166A9 /* TFGStore */,
 				F69D2DB01BABAB30006166A9 /* TFGStoreTests */,
-				F69D2D991BABAB30006166A9 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,13 +95,13 @@
 		F69D2D9A1BABAB30006166A9 /* TFGStore */ = {
 			isa = PBXGroup;
 			children = (
+				F69D2D9B1BABAB30006166A9 /* Supporting Files */,
 				F69D2DBD1BABAB44006166A9 /* TFGStore */,
 				F69D2D9D1BABAB30006166A9 /* AppDelegate.swift */,
-				F69D2D9F1BABAB30006166A9 /* ViewController.swift */,
-				F69D2DA11BABAB30006166A9 /* Main.storyboard */,
 				F69D2DA41BABAB30006166A9 /* Images.xcassets */,
 				F69D2DA61BABAB30006166A9 /* LaunchScreen.xib */,
-				F69D2D9B1BABAB30006166A9 /* Supporting Files */,
+				F69D2DA11BABAB30006166A9 /* Main.storyboard */,
+				F69D2D9F1BABAB30006166A9 /* ViewController.swift */,
 			);
 			path = TFGStore;
 			sourceTree = "<group>";
@@ -111,14 +111,14 @@
 			children = (
 				F69D2D9C1BABAB30006166A9 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		F69D2DB01BABAB30006166A9 /* TFGStoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				F69D2DB31BABAB30006166A9 /* TFGStoreTests.swift */,
 				F69D2DB11BABAB30006166A9 /* Supporting Files */,
+				F69D2DB31BABAB30006166A9 /* TFGStoreTests.swift */,
 			);
 			path = TFGStoreTests;
 			sourceTree = "<group>";
@@ -128,31 +128,31 @@
 			children = (
 				F69D2DB21BABAB30006166A9 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		F69D2DBD1BABAB44006166A9 /* TFGStore */ = {
 			isa = PBXGroup;
 			children = (
-				F6C7E2D61BAEE566008D4E9F /* Model */,
 				F69D2DDC1BABEAC9006166A9 /* Extras */,
-				F69D2DC61BABB3F2006166A9 /* TFGStoreVC.swift */,
-				F69D2DC71BABB3F2006166A9 /* TFGStoreVC.xib */,
+				F6C7E2D61BAEE566008D4E9F /* Model */,
 				F69D2DCA1BABC7D2006166A9 /* TFGStoreItemVC.swift */,
 				F69D2DCB1BABC7D2006166A9 /* TFGStoreItemVC.xib */,
-				F69D2DCE1BABCE14006166A9 /* TFGStoreTableCell.xib */,
 				F69D2DD41BABD699006166A9 /* TFGStoreTableCell.swift */,
+				F69D2DCE1BABCE14006166A9 /* TFGStoreTableCell.xib */,
+				F69D2DC61BABB3F2006166A9 /* TFGStoreVC.swift */,
+				F69D2DC71BABB3F2006166A9 /* TFGStoreVC.xib */,
 			);
-			name = TFGStore;
+			path = TFGStore;
 			sourceTree = "<group>";
 		};
 		F69D2DDC1BABEAC9006166A9 /* Extras */ = {
 			isa = PBXGroup;
 			children = (
-				F69D2DD81BABE8C7006166A9 /* UIImageViewExtensions.swift */,
 				F69D2DDA1BABE912006166A9 /* KFImageCacheManager.swift */,
+				F69D2DD81BABE8C7006166A9 /* UIImageViewExtensions.swift */,
 			);
-			name = Extras;
+			path = Extras;
 			sourceTree = "<group>";
 		};
 		F6C7E2D61BAEE566008D4E9F /* Model */ = {
@@ -160,7 +160,7 @@
 			children = (
 				F69D2DD61BABE095006166A9 /* TFGStoreItemModel.swift */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +302,7 @@
 				F69D2DA21BABAB30006166A9 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		F69D2DA61BABAB30006166A9 /* LaunchScreen.xib */ = {
@@ -310,6 +311,7 @@
 				F69D2DA71BABAB30006166A9 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -402,7 +404,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = TFGStore/Info.plist;
+				INFOPLIST_FILE = "TFGStore/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -412,7 +414,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = TFGStore/Info.plist;
+				INFOPLIST_FILE = "TFGStore/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -430,7 +432,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = TFGStoreTests/Info.plist;
+				INFOPLIST_FILE = "TFGStoreTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TFGStore.app/TFGStore";
@@ -445,7 +447,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = TFGStoreTests/Info.plist;
+				INFOPLIST_FILE = "TFGStoreTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TFGStore.app/TFGStore";
