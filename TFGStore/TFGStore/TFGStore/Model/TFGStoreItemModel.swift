@@ -16,23 +16,7 @@ class TFGStoreItemModel {
     var storeId = "";
     var screenshotsURLs = Array<String>();
     
-    static func arrayFromJson (json : NSDictionary) -> Array<TFGStoreItemModel> {
-        var array = Array<TFGStoreItemModel>();
-        var pos = 1;
-        if let appsArray = json["apps"] as? NSArray {
-            for app in appsArray {
-                if let obj = app as? NSDictionary {
-                    var model = TFGStoreItemModel(json: obj);
-                    model.position = pos;
-                    pos++;
-                    array.append(model);
-                }
-            }
-            
-        }
-        return array;
-    }
-    
+    // Initializer using a JSON dictionary
     init (json : NSDictionary) {
         for (key, value) in json {
             if let keyString = key as? String {
@@ -65,6 +49,19 @@ class TFGStoreItemModel {
         }
     }
     
+    // Loads an array of TFGStoreItemModel from an URL asynchronously, calling arrayFromURL in the background
+    static func arrayFromURLAsync (urlString : String, completionHandler : (array: Array<TFGStoreItemModel>) -> Void) {
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            var array = self.arrayFromURL(urlString);
+            dispatch_async(dispatch_get_main_queue()) {
+                completionHandler(array: array);
+            }
+        }
+    }
+    
+    // Loads an array of TFGStoreItemModel from an URL synchronously, calling arrayFromJson to build the array
+    // If there is any error during the downloading of the file, an empty array will be returned
     static func arrayFromURL (urlString : String) -> Array<TFGStoreItemModel> {
         if let url = NSURL(string: urlString) {
             if let data = NSData(contentsOfURL: url) {
@@ -77,13 +74,22 @@ class TFGStoreItemModel {
         return Array<TFGStoreItemModel>();
     }
     
-    static func arrayFromURLAsync (urlString : String, completionHandler : (array: Array<TFGStoreItemModel>) -> Void) {
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            var array = self.arrayFromURL(urlString);
-            dispatch_async(dispatch_get_main_queue()) {
-                completionHandler(array: array);
+    // Loads an array of TFGStoreItemModel from a JSON dictionary describing such array.
+    // If there is any error during the evaluation of the array, an incomplete or empty array will be returned
+    static func arrayFromJson (json : NSDictionary) -> Array<TFGStoreItemModel> {
+        var array = Array<TFGStoreItemModel>();
+        var pos = 1;
+        if let appsArray = json["apps"] as? NSArray {
+            for app in appsArray {
+                if let obj = app as? NSDictionary {
+                    var model = TFGStoreItemModel(json: obj);
+                    model.position = pos;
+                    pos++;
+                    array.append(model);
+                }
             }
+            
         }
+        return array;
     }
 }

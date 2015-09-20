@@ -15,15 +15,7 @@ class TFGStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     
     var jsonURLString : String = "";
     var modelArray : Array<TFGStoreItemModel> = Array<TFGStoreItemModel>();
-    
-    static func present(parent : UIViewController, url: String) {
-        let vc = TFGStoreVC();
-        vc.jsonURLString = url;
-        
-        let nav = UINavigationController(rootViewController: vc);
-        
-        parent.presentViewController(nav, animated: false, completion: nil);
-    }
+
     
     init() {
         super.init(nibName: "TFGStoreVC", bundle: nil);

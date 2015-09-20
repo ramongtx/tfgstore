@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F65D5D1D1BAEE69F00FA8210 /* TFGStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D5D1C1BAEE69F00FA8210 /* TFGStore.swift */; };
+		F65D5D201BAEEB7200FA8210 /* GTXUIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D5D1F1BAEEB7200FA8210 /* GTXUIImageViewExtensions.swift */; };
+		F65D5D221BAEEDB100FA8210 /* TFGStoreLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D5D211BAEEDB100FA8210 /* TFGStoreLogger.swift */; };
 		F69D2D9E1BABAB30006166A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D2D9D1BABAB30006166A9 /* AppDelegate.swift */; };
 		F69D2DA01BABAB30006166A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D2D9F1BABAB30006166A9 /* ViewController.swift */; };
 		F69D2DA31BABAB30006166A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F69D2DA11BABAB30006166A9 /* Main.storyboard */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F65D5D1C1BAEE69F00FA8210 /* TFGStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFGStore.swift; sourceTree = "<group>"; };
+		F65D5D1F1BAEEB7200FA8210 /* GTXUIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTXUIImageViewExtensions.swift; sourceTree = "<group>"; };
+		F65D5D211BAEEDB100FA8210 /* TFGStoreLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFGStoreLogger.swift; sourceTree = "<group>"; };
 		F69D2D981BABAB30006166A9 /* TFGStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TFGStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69D2D9C1BABAB30006166A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F69D2D9D1BABAB30006166A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +80,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F65D5D1E1BAEE6E600FA8210 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F69D2DCA1BABC7D2006166A9 /* TFGStoreItemVC.swift */,
+				F69D2DCB1BABC7D2006166A9 /* TFGStoreItemVC.xib */,
+				F69D2DD41BABD699006166A9 /* TFGStoreTableCell.swift */,
+				F69D2DCE1BABCE14006166A9 /* TFGStoreTableCell.xib */,
+				F69D2DC61BABB3F2006166A9 /* TFGStoreVC.swift */,
+				F69D2DC71BABB3F2006166A9 /* TFGStoreVC.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		F69D2D8F1BABAB30006166A9 = {
 			isa = PBXGroup;
 			children = (
@@ -134,14 +153,10 @@
 		F69D2DBD1BABAB44006166A9 /* TFGStore */ = {
 			isa = PBXGroup;
 			children = (
+				F65D5D1E1BAEE6E600FA8210 /* View */,
 				F69D2DDC1BABEAC9006166A9 /* Extras */,
 				F6C7E2D61BAEE566008D4E9F /* Model */,
-				F69D2DCA1BABC7D2006166A9 /* TFGStoreItemVC.swift */,
-				F69D2DCB1BABC7D2006166A9 /* TFGStoreItemVC.xib */,
-				F69D2DD41BABD699006166A9 /* TFGStoreTableCell.swift */,
-				F69D2DCE1BABCE14006166A9 /* TFGStoreTableCell.xib */,
-				F69D2DC61BABB3F2006166A9 /* TFGStoreVC.swift */,
-				F69D2DC71BABB3F2006166A9 /* TFGStoreVC.xib */,
+				F65D5D1C1BAEE69F00FA8210 /* TFGStore.swift */,
 			);
 			path = TFGStore;
 			sourceTree = "<group>";
@@ -151,6 +166,7 @@
 			children = (
 				F69D2DDA1BABE912006166A9 /* KFImageCacheManager.swift */,
 				F69D2DD81BABE8C7006166A9 /* UIImageViewExtensions.swift */,
+				F65D5D1F1BAEEB7200FA8210 /* GTXUIImageViewExtensions.swift */,
 			);
 			path = Extras;
 			sourceTree = "<group>";
@@ -159,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				F69D2DD61BABE095006166A9 /* TFGStoreItemModel.swift */,
+				F65D5D211BAEEDB100FA8210 /* TFGStoreLogger.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,12 +285,15 @@
 			files = (
 				F69D2DD91BABE8C7006166A9 /* UIImageViewExtensions.swift in Sources */,
 				F69D2DD71BABE095006166A9 /* TFGStoreItemModel.swift in Sources */,
+				F65D5D221BAEEDB100FA8210 /* TFGStoreLogger.swift in Sources */,
+				F65D5D201BAEEB7200FA8210 /* GTXUIImageViewExtensions.swift in Sources */,
 				F69D2DC81BABB3F2006166A9 /* TFGStoreVC.swift in Sources */,
 				F69D2DD51BABD699006166A9 /* TFGStoreTableCell.swift in Sources */,
 				F69D2DCC1BABC7D2006166A9 /* TFGStoreItemVC.swift in Sources */,
 				F69D2DA01BABAB30006166A9 /* ViewController.swift in Sources */,
 				F69D2D9E1BABAB30006166A9 /* AppDelegate.swift in Sources */,
 				F69D2DDB1BABE912006166A9 /* KFImageCacheManager.swift in Sources */,
+				F65D5D1D1BAEE69F00FA8210 /* TFGStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

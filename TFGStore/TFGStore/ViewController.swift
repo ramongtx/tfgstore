@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func click(sender: AnyObject) {
-        TFGStoreVC.present(self, url: "http://www.cmaciel.com/storeapps.json");
+        TFGStore.present(self, url: "http://www.cmaciel.com/storeapps.json");
     }
 }
 
