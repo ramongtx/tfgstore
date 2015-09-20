@@ -134,25 +134,33 @@
 		F69D2DBD1BABAB44006166A9 /* TFGStore */ = {
 			isa = PBXGroup;
 			children = (
-				F69D2DDC1BABEAC9006166A9 /* KFSwiftImageLoader */,
+				F6C7E2D61BAEE566008D4E9F /* Model */,
+				F69D2DDC1BABEAC9006166A9 /* Extras */,
 				F69D2DC61BABB3F2006166A9 /* TFGStoreVC.swift */,
 				F69D2DC71BABB3F2006166A9 /* TFGStoreVC.xib */,
 				F69D2DCA1BABC7D2006166A9 /* TFGStoreItemVC.swift */,
 				F69D2DCB1BABC7D2006166A9 /* TFGStoreItemVC.xib */,
 				F69D2DCE1BABCE14006166A9 /* TFGStoreTableCell.xib */,
 				F69D2DD41BABD699006166A9 /* TFGStoreTableCell.swift */,
-				F69D2DD61BABE095006166A9 /* TFGStoreItemModel.swift */,
 			);
 			name = TFGStore;
 			sourceTree = "<group>";
 		};
-		F69D2DDC1BABEAC9006166A9 /* KFSwiftImageLoader */ = {
+		F69D2DDC1BABEAC9006166A9 /* Extras */ = {
 			isa = PBXGroup;
 			children = (
 				F69D2DD81BABE8C7006166A9 /* UIImageViewExtensions.swift */,
 				F69D2DDA1BABE912006166A9 /* KFImageCacheManager.swift */,
 			);
-			name = KFSwiftImageLoader;
+			name = Extras;
+			sourceTree = "<group>";
+		};
+		F6C7E2D61BAEE566008D4E9F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F69D2DD61BABE095006166A9 /* TFGStoreItemModel.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,6 +471,7 @@
 				F69D2DB91BABAB30006166A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F69D2DBA1BABAB30006166A9 /* Build configuration list for PBXNativeTarget "TFGStoreTests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +480,7 @@
 				F69D2DBC1BABAB30006166A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
