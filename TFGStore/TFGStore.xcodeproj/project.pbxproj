@@ -90,7 +90,7 @@
 				F69D2DC61BABB3F2006166A9 /* TFGStoreVC.swift */,
 				F69D2DC71BABB3F2006166A9 /* TFGStoreVC.xib */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		F69D2D8F1BABAB30006166A9 = {
@@ -153,9 +153,9 @@
 		F69D2DBD1BABAB44006166A9 /* TFGStore */ = {
 			isa = PBXGroup;
 			children = (
-				F65D5D1E1BAEE6E600FA8210 /* View */,
 				F69D2DDC1BABEAC9006166A9 /* Extras */,
 				F6C7E2D61BAEE566008D4E9F /* Model */,
+				F65D5D1E1BAEE6E600FA8210 /* View */,
 				F65D5D1C1BAEE69F00FA8210 /* TFGStore.swift */,
 			);
 			path = TFGStore;
@@ -164,9 +164,9 @@
 		F69D2DDC1BABEAC9006166A9 /* Extras */ = {
 			isa = PBXGroup;
 			children = (
+				F65D5D1F1BAEEB7200FA8210 /* GTXUIImageViewExtensions.swift */,
 				F69D2DDA1BABE912006166A9 /* KFImageCacheManager.swift */,
 				F69D2DD81BABE8C7006166A9 /* UIImageViewExtensions.swift */,
-				F65D5D1F1BAEEB7200FA8210 /* GTXUIImageViewExtensions.swift */,
 			);
 			path = Extras;
 			sourceTree = "<group>";
