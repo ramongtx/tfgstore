@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "latest"
+  },
+  "applications": {
+    "TFGStore": {
+      "applicationId": "CZ4JUohdD3Z1xEXouwaKlx4sNxeAA9oJtnAv1WrX",
+      "masterKey": "NBodktkvYOeYR4qrvHSDIkNxIHHQO8x83n9ZXG1E"
+    },
+    "_default": {
+      "link": "TFGStore"
+    }
+  }
+}
