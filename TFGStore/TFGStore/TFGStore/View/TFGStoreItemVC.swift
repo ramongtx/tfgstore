@@ -10,6 +10,9 @@ import UIKit
 
 class TFGStoreItemVC: UIViewController {
     
+    private static let screenshotWidth : CGFloat = 225.0;
+    private static let screenshotHeight : CGFloat = 400.0;
+    
     // XIB Outlets
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -17,16 +20,39 @@ class TFGStoreItemVC: UIViewController {
     @IBOutlet weak var screenshotScrollView: UIScrollView!
 
     // Model
-    var model : TFGStoreItemModel?;
+    var model : TFGStoreItemModel? {
+        didSet {
+            if self.isViewLoaded() {
+                loadModelInfo();
+            }
+        }
+    }
+    
+    // Loads model information into the view
+    private func loadModelInfo () {
+        if let model = self.model {
+            self.navigationItem.title = model.appName;
+            self.nameLabel.text = model.appName;
+            self.iconImageView.loadImageFromURLString(model.iconURL, placeholderImage: nil, completion: nil);
+            self.descriptionTextView.text = model.description;
+            loadScreenshots(model.screenshotsURLs);
+            
+            // Log event
+            TFGStoreLogger.log(.AppLandingPage(model.storeId,model.position))
+        }
+    }
 
+    // Default initializer
     init() {
         super.init(nibName: "TFGStoreItemVC", bundle: nil);
     }
 
+    // Required initializer
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
     }
     
+    // Called when first loading page
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,17 +64,20 @@ class TFGStoreItemVC: UIViewController {
         self.iconImageView.clipsToBounds = true;
         
         // Loads model information into the view
-        if let model = self.model {
-            self.navigationItem.title = model.appName;
-            self.nameLabel.text = model.appName;
-            self.iconImageView.loadImageFromURLString(model.iconURL, placeholderImage: nil, completion: nil);
-            self.descriptionTextView.text = model.description;
-            loadScreenshots(model.screenshotsURLs);
-        }
+        loadModelInfo();
     }
     
-    func loadModel(newModel: TFGStoreItemModel) {
-        self.model = newModel;
+    // Called when user is leaving this view
+    override func viewWillDisappear(animated: Bool) {
+        if let nav = self.navigationController, let vcs = nav.viewControllers as? [UIViewController] {
+            if let found = find(vcs,self) {
+                
+            } else if let model = self.model {
+                TFGStoreLogger.log(.ClosedAppLandingPage(model.storeId,model.position));
+            }
+        }
+        super.viewWillDisappear(animated);
+        
     }
     
     // Loads screenshot from their URLs to the scroll view
@@ -61,7 +90,7 @@ class TFGStoreItemVC: UIViewController {
         for url in urls {
             
             // Make it so as images are always 225x400 (portrait)
-            var rect = CGRectMake(contentOffset, 0 as CGFloat, 225, 400);
+            var rect = CGRectMake(contentOffset, 0 as CGFloat, TFGStoreItemVC.screenshotWidth, TFGStoreItemVC.screenshotHeight);
             var imgview = UIImageView(frame: rect);
             imgview.backgroundColor = UIColor.lightGrayColor();
             imgview.contentMode = UIViewContentMode.ScaleAspectFit;
@@ -94,6 +123,9 @@ class TFGStoreItemVC: UIViewController {
     @IBAction func downloadClicked(sender: AnyObject) {
         if let id = self.model?.storeId, url  = NSURL(string: "itms-apps://itunes.apple.com/app/\(id)") {
             if UIApplication.sharedApplication().canOpenURL(url) == true  {
+                // Log event
+                TFGStoreLogger.log(.Downloaded(id,self.model!.position));
+
                 UIApplication.sharedApplication().openURL(url)
             }
 

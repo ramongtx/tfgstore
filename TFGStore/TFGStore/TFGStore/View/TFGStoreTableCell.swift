@@ -10,12 +10,25 @@ import UIKit
 
 class TFGStoreTableCell: UITableViewCell {
     
-    var model : TFGStoreItemModel?;
-    var delegate : TFGStoreTableCellProtocol?;
-
+    // Outlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
+    
+    var delegate : TFGStoreTableCellProtocol?;
+    var model : TFGStoreItemModel? {
+        didSet {
+            loadModelInfo();
+        }
+    }
+    
+    func loadModelInfo () {
+        if let model = self.model {
+            positionLabel.text = "\(model.position)";
+            nameLabel.text = model.appName;
+            iconImageView.loadImageFromURLString(model.iconURL, placeholderImage: nil, completion: nil);
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,13 +43,6 @@ class TFGStoreTableCell: UITableViewCell {
         if let mod = self.model {
             delegate?.selectedModel(mod);
         }
-    }
-    
-    func loadModel (newModel: TFGStoreItemModel) {
-        self.model = newModel;
-        positionLabel.text = "\(newModel.position)";
-        nameLabel.text = newModel.appName;
-        iconImageView.loadImageFromURLString(newModel.iconURL, placeholderImage: nil, completion: nil);
     }
 
 }

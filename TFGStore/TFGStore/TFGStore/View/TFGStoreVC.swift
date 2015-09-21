@@ -49,8 +49,11 @@ class TFGStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
             self.tableView.reloadData();
             self.activityIndicator.stopAnimating();
             self.tableView.hidden = false;
-
+            
+            TFGStoreLogger.log(.StoreLoaded)
         };
+        
+        TFGStoreLogger.log(.OpenedStore)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,14 +67,14 @@ class TFGStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         var cell : TFGStoreTableCell = self.tableView.dequeueReusableCellWithIdentifier("tfgstorecell") as! TFGStoreTableCell;
         
         cell.delegate = self;
-        cell.loadModel(self.modelArray[indexPath.row]);
+        cell.model = self.modelArray[indexPath.row];
 
         return cell;
     }
     
     func selectedModel(model: TFGStoreItemModel) {
         var vc = TFGStoreItemVC();
-        vc.loadModel(model);
+        vc.model = model;
         self.navigationController?.pushViewController(vc, animated: true);
     }
 
@@ -81,6 +84,7 @@ class TFGStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     
     func close(sender: AnyObject) {
         self.dismissViewControllerAnimated(false, completion: nil);
+        TFGStoreLogger.log(.ClosedStore);
     }
 
 }

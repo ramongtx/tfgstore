@@ -9,9 +9,11 @@
 import UIKit
 
 class TFGStore {
-    static func present(parent : UIViewController, url: String) {
+    static func present(parent : UIViewController, jsonURL: String, parseKey: String = "ibawDAvKXgvp2vxj0cZqGS9HOS8U2JzMOPO0qy3a", restApiKey: String = "bFBfgU5XKQ62HNCdVhfwg3w7yWN5yi8yqtNOesdm", cloudFunction: String = "hello") {
+        TFGStoreLogger.loadParse(parseKey, restApiKey: restApiKey, cloudFunction: cloudFunction);
+        
         let vc = TFGStoreVC();
-        vc.jsonURLString = url;
+        vc.jsonURLString = jsonURL;
         
         let nav = UINavigationController(rootViewController: vc);
         
