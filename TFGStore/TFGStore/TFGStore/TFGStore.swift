@@ -8,8 +8,8 @@
 
 import UIKit
 
-class TFGStore {
-    static func present(parent : UIViewController, jsonURL: String, parseKey: String = "ibawDAvKXgvp2vxj0cZqGS9HOS8U2JzMOPO0qy3a", restApiKey: String = "bFBfgU5XKQ62HNCdVhfwg3w7yWN5yi8yqtNOesdm", cloudFunction: String = "hello") {
+@objc class TFGStore {
+    static func present(viewController parent: UIViewController, jsonURL: String, parseKey: String, restApiKey: String, cloudFunction: String) {
         TFGStoreLogger.loadParse(parseKey, restApiKey: restApiKey, cloudFunction: cloudFunction);
         
         let vc = TFGStoreVC();
