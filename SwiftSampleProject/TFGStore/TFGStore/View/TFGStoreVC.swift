@@ -14,14 +14,18 @@ class TFGStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!;
     
-    var jsonURLString : String = "";
-    var modelArray : Array<TFGStoreItemModel> = Array<TFGStoreItemModel>();
-
+    // URL String for JSON model
+    var jsonURLString = "";
     
+    // Array of all items to be shown
+    var modelArray = Array<TFGStoreItemModel>();
+
+    // Basic NIB initializer
     init() {
         super.init(nibName: "TFGStoreVC", bundle: nil);
     }
     
+    // Required initializer
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
     }
@@ -29,22 +33,25 @@ class TFGStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.hidden = true;
-        self.activityIndicator.startAnimating();
-        
+        // Navigation bar configuration
         self.navigationItem.title = "TFG Games Store";
-        
         let backButton = UIBarButtonItem(title: "Close", style: UIBarButtonItemStyle.Plain, target: self, action:"close:");
         self.navigationItem.leftBarButtonItem = backButton;
         
+        // Show loading indicator during JSON dowload
+        self.tableView.hidden = true;
+        self.activityIndicator.startAnimating();
+        
+        // TableView configuration
         tableView.delegate = self;
         tableView.dataSource = self;
-        tableView.tableFooterView = UIView(frame: CGRectZero);
+        tableView.tableFooterView = UIView(frame: CGRectZero); // No empty cells to fill space
         
-        // Registering NIB
+        // Registering NIB responsible for table cells
         let tableCellNib = UINib(nibName: "TFGStoreTableCell",bundle: nil);
         tableView.registerNib(tableCellNib, forCellReuseIdentifier: "tfgstorecell");
         
+        // Load JSON from URL asynchronously
         TFGStoreItemModel.arrayFromURLAsync(self.jsonURLString) { array in
             self.modelArray = array;
             self.tableView.reloadData();
@@ -57,10 +64,22 @@ class TFGStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         TFGStoreLogger.log(.OpenedStore)
     }
     
+    // Close the store and return to previous activities
+    func close(sender: AnyObject) {
+        self.dismissViewControllerAnimated(false, completion: nil);
+        TFGStoreLogger.log(.ClosedStore);
+    }
+    
+    // MARK: TFGStoreTableCell delegate
+    
+    func selectedModel(model: TFGStoreItemModel) {
+        let vc = TFGStoreItemVC();
+        vc.model = model;
+        self.navigationController?.pushViewController(vc, animated: true);
+    }
+    
+    // MARK: Table View delegate and data source
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section != 0 {
-            return 0;
-        }
         return self.modelArray.count;
     }
     
@@ -72,20 +91,10 @@ class TFGStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
 
         return cell;
     }
-    
-    func selectedModel(model: TFGStoreItemModel) {
-        let vc = TFGStoreItemVC();
-        vc.model = model;
-        self.navigationController?.pushViewController(vc, animated: true);
-    }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 84;
     }
     
-    func close(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil);
-        TFGStoreLogger.log(.ClosedStore);
-    }
 
 }

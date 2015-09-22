@@ -15,9 +15,9 @@ enum TFGStoreLogEvent {
     case OpenedStore
     case StoreLoaded
     case ClosedStore
-    case AppLandingPage(String, Int)        // (AppId, AppPos)
-    case Downloaded(String, Int)            // (AppId, AppPos)
-    case ClosedAppLandingPage(String,Int)   // (AppId, AppPos)
+    case AppLandingPage(String, Int)        // (appId, appPos)
+    case Downloaded(String, Int)            // (appId, appPos)
+    case ClosedAppLandingPage(String,Int)   // (appId, appPos)
     case Other(String)                      // (details)
 }
 
@@ -32,6 +32,7 @@ class TFGStoreLogger {
     private static var kAppId : String?;
     private static var kRestAPIKey : String?;
     private static var kCloudFunction : String?;
+    private static var logs = Array<TFGStoreLogModel>();
     
     // Load log server info
     static func loadParse(appId : String, restApiKey : String, cloudFunction: String) {
@@ -39,10 +40,7 @@ class TFGStoreLogger {
         kRestAPIKey = restApiKey;
         kCloudFunction = cloudFunction;
     }
-    
-    // Logbook
-    private static var logs = Array<TFGStoreLogModel>();
-    
+        
     // Add a simple log to logbook
     static func log(event: TFGStoreLogEvent) {
         let logModel = TFGStoreLogModel();
@@ -110,31 +108,33 @@ class TFGStoreLogger {
     
     // Uploads logs to Parse server
     private static func uploadToServer() {
-        if let cloudFunction = kCloudFunction, let appId = kAppId, let restApiKey = kRestAPIKey {
-            let jsonString = try? NSJSONSerialization.dataWithJSONObject(logsDictionary(), options: []);
-            
-            let request = NSMutableURLRequest()
-            request.HTTPMethod = "POST"
-            request.addValue(appId, forHTTPHeaderField: "X-Parse-Application-Id")
-            request.addValue(restApiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.HTTPBody = jsonString;
-            
-            let urlString = "https://api.parse.com/1/functions/\(cloudFunction)"
-            let requestURL = NSURL(string: urlString)
-            
-            request.URL = requestURL!
-            
-            let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
-                if error != nil {
-                    print("Error sending logs to server: \(error)");
-                }
-                if let resp = response as? NSHTTPURLResponse {
-                    print("Response from sending logs to server: \(resp.statusCode) : \(NSHTTPURLResponse.localizedStringForStatusCode(resp.statusCode))");
-                }
-            });
-            
-            task.resume()
+        if logs.count > 0 {
+            if let cloudFunction = kCloudFunction, let appId = kAppId, let restApiKey = kRestAPIKey {
+                let jsonString = try? NSJSONSerialization.dataWithJSONObject(logsDictionary(), options: []);
+                
+                let request = NSMutableURLRequest()
+                request.HTTPMethod = "POST"
+                request.addValue(appId, forHTTPHeaderField: "X-Parse-Application-Id")
+                request.addValue(restApiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.HTTPBody = jsonString;
+                
+                let urlString = "https://api.parse.com/1/functions/\(cloudFunction)"
+                let requestURL = NSURL(string: urlString)
+                
+                request.URL = requestURL!
+                
+                let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                    if error != nil {
+                        print("Error sending logs to server: \(error)");
+                    }
+                    if let resp = response as? NSHTTPURLResponse {
+                        print("Response from sending logs to server: \(resp.statusCode) : \(NSHTTPURLResponse.localizedStringForStatusCode(resp.statusCode))");
+                    }
+                });
+                
+                task.resume()
+            }
         }
     }
 }

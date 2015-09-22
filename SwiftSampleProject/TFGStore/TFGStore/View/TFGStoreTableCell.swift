@@ -16,12 +16,15 @@ class TFGStoreTableCell: UITableViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     
     var delegate : TFGStoreTableCellProtocol?;
+    
+    // When model changes, update view
     var model : TFGStoreItemModel? {
         didSet {
             loadModelInfo();
         }
     }
     
+    // Updates view so it corresponds to model
     func loadModelInfo () {
         if let model = self.model {
             positionLabel.text = "\(model.position)";
@@ -30,15 +33,21 @@ class TFGStoreTableCell: UITableViewCell {
         }
     }
     
+    // Basic initializer
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        // Rounded corners
         self.iconImageView.layer.cornerRadius = self.iconImageView.frame.width/4;
         self.iconImageView.clipsToBounds = true
+        
+        // Image view answers to touch as button
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("clickedGet:"))
         self.iconImageView.addGestureRecognizer(tapGestureRecognizer)
 
     }
 
+    // Button or image touch sends signal to delegate to change view controller
     @IBAction func clickedGet(sender: AnyObject) {
         if let mod = self.model {
             delegate?.selectedModel(mod);
@@ -47,6 +56,7 @@ class TFGStoreTableCell: UITableViewCell {
 
 }
 
+// Delegate protocol to answer to cell selection
 protocol TFGStoreTableCellProtocol {
     func selectedModel(model: TFGStoreItemModel);
 }
