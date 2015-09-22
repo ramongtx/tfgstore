@@ -20,9 +20,8 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    
-    [TFGStore presentWithViewController:self jsonURL:@"https://storeparse.parseapp.com/storeapps.json" parseKey:@"https://storeparse.parseapp.com/storeapps.json" restApiKey:@"twmlIXOsmtXOnYFoWqKJuxcW3HVjtMQERa4SAdTW" cloudFunction:@"addLogs"];
+- (IBAction)buttonTouched:(id)sender {
+    [TFGStore presentWithViewController:self jsonURL:@"https://storeparse.parseapp.com/storeapps.json" parseKey:@"CZ4JUohdD3Z1xEXouwaKlx4sNxeAA9oJtnAv1WrX" restApiKey:@"twmlIXOsmtXOnYFoWqKJuxcW3HVjtMQERa4SAdTW" cloudFunction:@"addLogs"];
 
 }
 

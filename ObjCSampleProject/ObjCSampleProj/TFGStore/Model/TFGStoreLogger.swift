@@ -15,10 +15,10 @@ enum TFGStoreLogEvent {
     case OpenedStore
     case StoreLoaded
     case ClosedStore
-    case AppLandingPage(String, Int)
-    case Downloaded(String, Int)
-    case ClosedAppLandingPage(String,Int)
-    case Other(String)
+    case AppLandingPage(String, Int)        // (AppId, AppPos)
+    case Downloaded(String, Int)            // (AppId, AppPos)
+    case ClosedAppLandingPage(String,Int)   // (AppId, AppPos)
+    case Other(String)                      // (details)
 }
 
 // Basic log row
@@ -76,7 +76,7 @@ class TFGStoreLogger {
             id = adId.UUIDString;
         }
         for log in logs {
-            let logJson: NSMutableDictionary = ["timestamp": log.timestamp];
+            let logJson: NSMutableDictionary = ["time": log.timestamp];
             switch log.event {
             case .None:
                 logJson["eventType"] = 0;
@@ -125,7 +125,14 @@ class TFGStoreLogger {
             
             request.URL = requestURL!
             
-            let task = NSURLSession.sharedSession().dataTaskWithRequest(request);
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                if error != nil {
+                    print("Error sending logs to server: \(error)");
+                }
+                if let resp = response as? NSHTTPURLResponse {
+                    print("Response from sending logs to server: \(resp.statusCode) : \(NSHTTPURLResponse.localizedStringForStatusCode(resp.statusCode))");
+                }
+            });
             
             task.resume()
         }

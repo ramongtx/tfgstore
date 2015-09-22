@@ -122,10 +122,10 @@ class TFGStoreItemVC: UIViewController {
     // Open App Store (if possible) upon user clicking download
     @IBAction func downloadClicked(sender: AnyObject) {
         if let id = self.model?.storeId, url  = NSURL(string: "itms-apps://itunes.apple.com/app/\(id)") {
-            if UIApplication.sharedApplication().canOpenURL(url) == true  {
-                // Log event
-                TFGStoreLogger.log(.Downloaded(id,self.model!.position));
+            // Log event
+            TFGStoreLogger.log(.Downloaded(id,self.model!.position));
 
+            if UIApplication.sharedApplication().canOpenURL(url) == true  {
                 UIApplication.sharedApplication().openURL(url)
             }
 
