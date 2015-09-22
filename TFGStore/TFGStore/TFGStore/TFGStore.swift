@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc class TFGStore {
+class TFGStore {
     static func present(viewController parent: UIViewController, jsonURL: String, parseKey: String, restApiKey: String, cloudFunction: String) {
         TFGStoreLogger.loadParse(parseKey, restApiKey: restApiKey, cloudFunction: cloudFunction);
         

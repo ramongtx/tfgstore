@@ -15,7 +15,6 @@
 		F69D2DA31BABAB30006166A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F69D2DA11BABAB30006166A9 /* Main.storyboard */; };
 		F69D2DA51BABAB30006166A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F69D2DA41BABAB30006166A9 /* Images.xcassets */; };
 		F69D2DA81BABAB30006166A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F69D2DA61BABAB30006166A9 /* LaunchScreen.xib */; };
-		F69D2DB41BABAB30006166A9 /* TFGStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D2DB31BABAB30006166A9 /* TFGStoreTests.swift */; };
 		F69D2DC81BABB3F2006166A9 /* TFGStoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D2DC61BABB3F2006166A9 /* TFGStoreVC.swift */; };
 		F69D2DC91BABB3F2006166A9 /* TFGStoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F69D2DC71BABB3F2006166A9 /* TFGStoreVC.xib */; };
 		F69D2DCC1BABC7D2006166A9 /* TFGStoreItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D2DCA1BABC7D2006166A9 /* TFGStoreItemVC.swift */; };
@@ -26,16 +25,6 @@
 		F69D2DD91BABE8C7006166A9 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D2DD81BABE8C7006166A9 /* UIImageViewExtensions.swift */; };
 		F69D2DDB1BABE912006166A9 /* KFImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69D2DDA1BABE912006166A9 /* KFImageCacheManager.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		F69D2DAE1BABAB30006166A9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F69D2D901BABAB30006166A9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F69D2D971BABAB30006166A9;
-			remoteInfo = TFGStore;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		F65D5D1C1BAEE69F00FA8210 /* TFGStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFGStore.swift; sourceTree = "<group>"; };
@@ -48,7 +37,6 @@
 		F69D2DA21BABAB30006166A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F69D2DA41BABAB30006166A9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F69D2DA71BABAB30006166A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		F69D2DAD1BABAB30006166A9 /* TFGStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TFGStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69D2DB21BABAB30006166A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F69D2DB31BABAB30006166A9 /* TFGStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFGStoreTests.swift; sourceTree = "<group>"; };
 		F69D2DC61BABB3F2006166A9 /* TFGStoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFGStoreVC.swift; sourceTree = "<group>"; };
@@ -64,13 +52,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		F69D2D951BABAB30006166A9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F69D2DAA1BABAB30006166A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -106,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				F69D2D981BABAB30006166A9 /* TFGStore.app */,
-				F69D2DAD1BABAB30006166A9 /* TFGStoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -200,39 +180,19 @@
 			productReference = F69D2D981BABAB30006166A9 /* TFGStore.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F69D2DAC1BABAB30006166A9 /* TFGStoreTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F69D2DBA1BABAB30006166A9 /* Build configuration list for PBXNativeTarget "TFGStoreTests" */;
-			buildPhases = (
-				F69D2DA91BABAB30006166A9 /* Sources */,
-				F69D2DAA1BABAB30006166A9 /* Frameworks */,
-				F69D2DAB1BABAB30006166A9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F69D2DAF1BABAB30006166A9 /* PBXTargetDependency */,
-			);
-			name = TFGStoreTests;
-			productName = TFGStoreTests;
-			productReference = F69D2DAD1BABAB30006166A9 /* TFGStoreTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		F69D2D901BABAB30006166A9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Ramon Carvalho Maciel";
 				TargetAttributes = {
 					F69D2D971BABAB30006166A9 = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					F69D2DAC1BABAB30006166A9 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = F69D2D971BABAB30006166A9;
 					};
 				};
 			};
@@ -250,7 +210,6 @@
 			projectRoot = "";
 			targets = (
 				F69D2D971BABAB30006166A9 /* TFGStore */,
-				F69D2DAC1BABAB30006166A9 /* TFGStoreTests */,
 			);
 		};
 /* End PBXProject section */
@@ -266,13 +225,6 @@
 				F69D2DA81BABAB30006166A9 /* LaunchScreen.xib in Resources */,
 				F69D2DC91BABB3F2006166A9 /* TFGStoreVC.xib in Resources */,
 				F69D2DA51BABAB30006166A9 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F69D2DAB1BABAB30006166A9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,23 +249,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F69D2DA91BABAB30006166A9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F69D2DB41BABAB30006166A9 /* TFGStoreTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F69D2DAF1BABAB30006166A9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F69D2D971BABAB30006166A9 /* TFGStore */;
-			targetProxy = F69D2DAE1BABAB30006166A9 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F69D2DA11BABAB30006166A9 /* Main.storyboard */ = {
@@ -358,6 +294,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -426,6 +363,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "TFGStore/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ramongtx.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -436,41 +374,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "TFGStore/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ramongtx.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		F69D2DBB1BABAB30006166A9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "TFGStoreTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TFGStore.app/TFGStore";
-			};
-			name = Debug;
-		};
-		F69D2DBC1BABAB30006166A9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "TFGStoreTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TFGStore.app/TFGStore";
 			};
 			name = Release;
 		};
@@ -491,15 +396,6 @@
 			buildConfigurations = (
 				F69D2DB81BABAB30006166A9 /* Debug */,
 				F69D2DB91BABAB30006166A9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F69D2DBA1BABAB30006166A9 /* Build configuration list for PBXNativeTarget "TFGStoreTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F69D2DBB1BABAB30006166A9 /* Debug */,
-				F69D2DBC1BABAB30006166A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

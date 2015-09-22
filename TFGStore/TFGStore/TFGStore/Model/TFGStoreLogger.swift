@@ -45,7 +45,7 @@ class TFGStoreLogger {
     
     // Add a simple log to logbook
     static func log(event: TFGStoreLogEvent) {
-        var logModel = TFGStoreLogModel();
+        let logModel = TFGStoreLogModel();
         logModel.timestamp = Int(NSDate().timeIntervalSince1970);
         logModel.event = event;
         logs.append(logModel);
@@ -61,7 +61,7 @@ class TFGStoreLogger {
     
     // Get advertising identifier if advertising tracking is enabled in the device
     private static func advertisingIdentifier() -> NSUUID? {
-        var manager = ASIdentifierManager.sharedManager() as ASIdentifierManager;
+        let manager = ASIdentifierManager.sharedManager() as ASIdentifierManager;
         if manager.advertisingTrackingEnabled {
             return manager.advertisingIdentifier;
         }
@@ -101,7 +101,6 @@ class TFGStoreLogger {
             case .Other(let details):
                 logJson["eventType"] = 7;
                 logJson["details"] = details;
-            default: ()
             }
             array.append(logJson);
         }
@@ -112,9 +111,9 @@ class TFGStoreLogger {
     // Uploads logs to Parse server
     private static func uploadToServer() {
         if let cloudFunction = kCloudFunction, let appId = kAppId, let restApiKey = kRestAPIKey {
-            var jsonString = NSJSONSerialization.dataWithJSONObject(logsDictionary(), options: nil, error: nil);
+            let jsonString = try? NSJSONSerialization.dataWithJSONObject(logsDictionary(), options: []);
             
-            var request = NSMutableURLRequest()
+            let request = NSMutableURLRequest()
             request.HTTPMethod = "POST"
             request.addValue(appId, forHTTPHeaderField: "X-Parse-Application-Id")
             request.addValue(restApiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
@@ -122,11 +121,11 @@ class TFGStoreLogger {
             request.HTTPBody = jsonString;
             
             let urlString = "https://api.parse.com/1/functions/\(cloudFunction)"
-            var requestURL = NSURL(string: urlString)
+            let requestURL = NSURL(string: urlString)
             
             request.URL = requestURL!
             
-            var task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: nil);
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request);
             
             task.resume()
         }

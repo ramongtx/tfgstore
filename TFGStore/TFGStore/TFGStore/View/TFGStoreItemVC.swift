@@ -48,7 +48,7 @@ class TFGStoreItemVC: UIViewController {
     }
 
     // Required initializer
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
     }
     
@@ -69,8 +69,8 @@ class TFGStoreItemVC: UIViewController {
     
     // Called when user is leaving this view
     override func viewWillDisappear(animated: Bool) {
-        if let nav = self.navigationController, let vcs = nav.viewControllers as? [UIViewController] {
-            if let found = find(vcs,self) {
+        if let nav = self.navigationController {
+            if nav.viewControllers.indexOf(self) != nil {
                 
             } else if let model = self.model {
                 TFGStoreLogger.log(.ClosedAppLandingPage(model.storeId,model.position));
@@ -90,8 +90,8 @@ class TFGStoreItemVC: UIViewController {
         for url in urls {
             
             // Make it so as images are always 225x400 (portrait)
-            var rect = CGRectMake(contentOffset, 0 as CGFloat, TFGStoreItemVC.screenshotWidth, TFGStoreItemVC.screenshotHeight);
-            var imgview = UIImageView(frame: rect);
+            let rect = CGRectMake(contentOffset, 0 as CGFloat, TFGStoreItemVC.screenshotWidth, TFGStoreItemVC.screenshotHeight);
+            let imgview = UIImageView(frame: rect);
             imgview.backgroundColor = UIColor.lightGrayColor();
             imgview.contentMode = UIViewContentMode.ScaleAspectFit;
 

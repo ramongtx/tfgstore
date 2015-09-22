@@ -21,7 +21,7 @@ class TFGStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         super.init(nibName: "TFGStoreVC", bundle: nil);
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
     }
     
@@ -41,7 +41,7 @@ class TFGStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         tableView.tableFooterView = UIView(frame: CGRectZero);
         
         // Registering NIB
-        var tableCellNib = UINib(nibName: "TFGStoreTableCell",bundle: nil);
+        let tableCellNib = UINib(nibName: "TFGStoreTableCell",bundle: nil);
         tableView.registerNib(tableCellNib, forCellReuseIdentifier: "tfgstorecell");
         
         TFGStoreItemModel.arrayFromURLAsync(self.jsonURLString) { array in
@@ -64,7 +64,7 @@ class TFGStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell : TFGStoreTableCell = self.tableView.dequeueReusableCellWithIdentifier("tfgstorecell") as! TFGStoreTableCell;
+        let cell : TFGStoreTableCell = self.tableView.dequeueReusableCellWithIdentifier("tfgstorecell") as! TFGStoreTableCell;
         
         cell.delegate = self;
         cell.model = self.modelArray[indexPath.row];
@@ -73,7 +73,7 @@ class TFGStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     }
     
     func selectedModel(model: TFGStoreItemModel) {
-        var vc = TFGStoreItemVC();
+        let vc = TFGStoreItemVC();
         vc.model = model;
         self.navigationController?.pushViewController(vc, animated: true);
     }

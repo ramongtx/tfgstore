@@ -53,7 +53,7 @@ class TFGStoreItemModel {
     static func arrayFromURLAsync (urlString : String, completionHandler : (array: Array<TFGStoreItemModel>) -> Void) {
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            var array = self.arrayFromURL(urlString);
+            let array = self.arrayFromURL(urlString);
             dispatch_async(dispatch_get_main_queue()) {
                 completionHandler(array: array);
             }
@@ -65,9 +65,12 @@ class TFGStoreItemModel {
     static func arrayFromURL (urlString : String) -> Array<TFGStoreItemModel> {
         if let url = NSURL(string: urlString) {
             if let data = NSData(contentsOfURL: url) {
-                var error: NSError?
-                if let jsonDictionary: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &error) as? NSDictionary{
-                    return arrayFromJson(jsonDictionary);
+                do {
+                    if let jsonDictionary: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary{
+                        return arrayFromJson(jsonDictionary);
+                    }
+                } catch {
+                    
                 }
             }
         }
@@ -82,7 +85,7 @@ class TFGStoreItemModel {
         if let appsArray = json["apps"] as? NSArray {
             for app in appsArray {
                 if let obj = app as? NSDictionary {
-                    var model = TFGStoreItemModel(json: obj);
+                    let model = TFGStoreItemModel(json: obj);
                     model.position = pos;
                     pos++;
                     array.append(model);

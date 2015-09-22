@@ -34,7 +34,7 @@ class TFGStoreTableCell: UITableViewCell {
         super.awakeFromNib()
         self.iconImageView.layer.cornerRadius = self.iconImageView.frame.width/4;
         self.iconImageView.clipsToBounds = true
-        var tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("clickedGet:"))
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("clickedGet:"))
         self.iconImageView.addGestureRecognizer(tapGestureRecognizer)
 
     }
