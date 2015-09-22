@@ -15,10 +15,10 @@ enum TFGStoreLogEvent {
     case OpenedStore
     case StoreLoaded
     case ClosedStore
-    case AppLandingPage(String, Int)
-    case Downloaded(String, Int)
-    case ClosedAppLandingPage(String,Int)
-    case Other(String)
+    case AppLandingPage(String, Int)        // (AppId, AppPos)
+    case Downloaded(String, Int)            // (AppId, AppPos)
+    case ClosedAppLandingPage(String,Int)   // (AppId, AppPos)
+    case Other(String)                      // (details)
 }
 
 // Basic log row

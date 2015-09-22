@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+// Single public class allowing to present the store view controller
 @objc public class TFGStore :NSObject {
     public static func present(viewController parent: UIViewController, jsonURL: String, parseKey: String, restApiKey: String, cloudFunction: String) {
         TFGStoreLogger.loadParse(parseKey, restApiKey: restApiKey, cloudFunction: cloudFunction);
