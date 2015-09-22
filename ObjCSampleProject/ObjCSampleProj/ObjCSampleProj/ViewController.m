@@ -22,7 +22,7 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     
-    [TFGStore presentWithViewController:self jsonURL:@"https://storeparse.parseapp.com/storeapps.json" parseKey:@"https://storeparse.parseapp.com/storeapps.json" restApiKey:@"twmlIXOsmtXOnYFoWqKJuxcW3HVjtMQERa4SAdTW" cloudFunction:@"hello"];
+    [TFGStore presentWithViewController:self jsonURL:@"https://storeparse.parseapp.com/storeapps.json" parseKey:@"https://storeparse.parseapp.com/storeapps.json" restApiKey:@"twmlIXOsmtXOnYFoWqKJuxcW3HVjtMQERa4SAdTW" cloudFunction:@"addLogs"];
 
 }
 

@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func click(sender: AnyObject) {
-        TFGStore.present(viewController: self, jsonURL: "https://storeparse.parseapp.com/storeapps.json",parseKey: "CZ4JUohdD3Z1xEXouwaKlx4sNxeAA9oJtnAv1WrX", restApiKey: "twmlIXOsmtXOnYFoWqKJuxcW3HVjtMQERa4SAdTW", cloudFunction: "hello");
+        TFGStore.present(viewController: self, jsonURL: "https://storeparse.parseapp.com/storeapps.json",parseKey: "CZ4JUohdD3Z1xEXouwaKlx4sNxeAA9oJtnAv1WrX", restApiKey: "twmlIXOsmtXOnYFoWqKJuxcW3HVjtMQERa4SAdTW", cloudFunction: "addLogs");
     }
 }
 
